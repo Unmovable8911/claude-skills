@@ -49,7 +49,7 @@ Iterate until the user approves the breakdown.
 
 ### 5. Save the issues outline
 
-Save the user approved issues outline into `.docs/issues/00-outline.md` as a numbered list. Each list item shows the slice title, its blocked-by slice, and the issue status (pending / resolved).
+Save the user approved issues outline into `.docs/issues/00-outline.md` as a numbered list. Each list item shows the slice title, its blocked-by slice, and the issue status (pending / resolved). Do not generate content other than the list.
 
 ### 6. Save the issues to `.docs/issues/`
 
