@@ -1,0 +1,72 @@
+[
+  {
+    "name": "diagnose",
+    "directory": "engineering/diagnose",
+    "description": "Disciplined diagnosis loop for hard bugs and performance regressions. Reproduce, minimise, hypothesise, instrument, fix, regression-test."
+  },
+  {
+    "name": "dispatch-issues",
+    "directory": "engineering/dispatch-issues",
+    "description": "Orchestrate issue slices from .docs/issues/ to TDD sub-agents in dependency order, driving issue backlogs to completion wave by wave."
+  },
+  {
+    "name": "grill-with-docs",
+    "directory": "engineering/grill-with-docs",
+    "description": "Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates documentation inline."
+  },
+  {
+    "name": "improve-codebase-architecture",
+    "directory": "engineering/improve-codebase-architecture",
+    "description": "Find deepening opportunities in a codebase to improve architecture, consolidate tightly-coupled modules, and enhance testability."
+  },
+  {
+    "name": "prototype",
+    "directory": "engineering/prototype",
+    "description": "Build a throwaway prototype to flesh out a design before committing to it, supporting both logic/state-model and UI variation branches."
+  },
+  {
+    "name": "tdd",
+    "directory": "engineering/tdd",
+    "description": "Test-driven development with red-green-refactor loop, emphasizing behavior verification through public interfaces."
+  },
+  {
+    "name": "to-issues",
+    "directory": "engineering/to-issues",
+    "description": "Break a plan, spec, or PRD into independently-grabbable issues using tracer-bullet vertical slices."
+  },
+  {
+    "name": "to-prd",
+    "directory": "engineering/to-prd",
+    "description": "Turn the current conversation context into a PRD and save to .docs/prd/."
+  },
+  {
+    "name": "caveman",
+    "directory": "productivity/caveman",
+    "description": "Ultra-compressed communication mode that cuts token usage ~75% by dropping filler while keeping full technical accuracy."
+  },
+  {
+    "name": "grill-me",
+    "directory": "productivity/grill-me",
+    "description": "Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree."
+  },
+  {
+    "name": "skill-creator",
+    "directory": "productivity/skill-creator",
+    "description": "Create new skills, modify and improve existing skills, and measure skill performance with evals and benchmarks."
+  },
+  {
+    "name": "teach",
+    "directory": "productivity/teach",
+    "description": "Teach the user a new skill or concept within a structured teaching workspace with missions, lessons, and learning records."
+  },
+  {
+    "name": "setup-kilians-skills",
+    "directory": "productivity/setup-kilians-skills",
+    "description": "Install skills from Kilian's collection into global or project-level Claude skills directories via symbolic links."
+  },
+  {
+    "name": "write-a-skill",
+    "directory": "productivity/write-a-skill",
+    "description": "Create new agent skills with proper structure, progressive disclosure, and bundled resources."
+  }
+]
