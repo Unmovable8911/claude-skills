@@ -5,25 +5,22 @@ description: Install skills from Kilian's skills collection into the global or p
 
 # Setup Kilian's Skills
 
-Install skills from this repository into global or project-level Claude skills directories by creating symbolic links. This avoids copying files and keeps installed skills in sync with the source.
+Install skills from this repository into Claude skills directories by creating symbolic links. The bundled script handles all heavy lifting — listing skills, checking install status, and creating symlinks. Your role is to resolve paths, ask the user for scope and selection, and relay script output.
+
+Do NOT read `skills.json` or create symlinks yourself. The script does both.
 
 ## Resolve paths
 
-Before doing anything else, detect the operating system and resolve all paths accordingly.
+Detect the OS and resolve all paths before running the script.
 
 ### Detect OS
 
-Run `uname -s 2>/dev/null || echo Windows` to detect the platform. Classify as:
+Run `uname -s 2>/dev/null || echo Windows`. Classify as:
 - **macOS** — output contains `Darwin`
 - **Linux** — output contains `Linux`
 - **Windows** — output contains `MINGW`, `MSYS`, `CYGWIN`, or `Windows`
 
-### Derive the home directory
-
-- macOS / Linux: use `$HOME`
-- Windows: use `$USERPROFILE` (in PowerShell/cmd) or `$HOME` (in Git Bash / WSL). Run `echo $HOME` first — if it returns a valid path, use it; otherwise fall back to `$USERPROFILE`.
-
-### Derive key paths
+### Derive paths
 
 | Path | macOS / Linux | Windows (Git Bash / WSL) | Windows (PowerShell / cmd) |
 |---|---|---|---|
@@ -31,68 +28,63 @@ Run `uname -s 2>/dev/null || echo Windows` to detect the platform. Classify as:
 | **Global install dir** | `$HOME/.claude/skills` | `$HOME/.claude/skills` | `$USERPROFILE\.claude\skills` |
 | **Project install dir** | `.claude/skills` (relative to cwd) | `.claude/skills` | `.claude\skills` |
 
-### Validate the skills repo exists
-
-Check that the skills repo directory actually exists at the resolved path. If it doesn't, tell the user the expected location and stop — the repository may not have been cloned yet.
+Validate the skills repo directory exists. If it doesn't, tell the user the expected location and stop.
 
 ## Process
 
 ### 1. Ask where to install
 
-Use `AskUserQuestion` to ask the user whether skills should be installed globally or at the project level:
+Use `AskUserQuestion` to ask global or project-level:
 
 - **Global** — symlinks go into the global install dir
-- **Project** — symlinks go into `.claude/skills/` relative to the current working directory
+- **Project** — symlinks go into `.claude/skills/` relative to cwd
 
-If the user picks project-level, verify that the current working directory is a sensible project root (has a `.git/`, `package.json`, `Cargo.toml`, or similar). Create the target directory if it doesn't exist.
+If project-level, verify the cwd looks like a project root (has `.git/`, `package.json`, `Cargo.toml`, or similar).
 
-### 2. List available skills
+### 2. List skills and collect selection
 
-Run the bundled script to display the full skill list. Pass both the global and project skill directories so the script can show installation status for each skill. Choose the script matching the detected OS:
+Run the script's `list` command to show all available skills:
 
-- **macOS / Linux / Git Bash / WSL:**
-  ```bash
-  bash <repo-dir>/productivity/setup-kilians-skills/scripts/select-and-install.sh list \
-    --repo-dir <repo-dir> \
-    --global-dir <global-install-dir> \
-    --project-dir <project-install-dir>
-  ```
+```bash
+bash <repo-dir>/productivity/setup-kilians-skills/scripts/select-and-install.sh list \
+  --repo-dir <repo-dir> \
+  --global-dir <global-install-dir> \
+  --project-dir <project-install-dir>
+```
 
-- **Windows (PowerShell / cmd):**
-  ```powershell
-  powershell -ExecutionPolicy Bypass -File "<repo-dir>\productivity\setup-kilians-skills\scripts\select-and-install.ps1" list -RepoDir "<repo-dir>" -GlobalDir "<global-install-dir>" -ProjectDir "<project-install-dir>"
-  ```
+On Windows, use the `.ps1` variant:
+```powershell
+powershell -ExecutionPolicy Bypass -File "<repo-dir>\productivity\setup-kilians-skills\scripts\select-and-install.ps1" list `
+  -RepoDir "<repo-dir>" -GlobalDir "<global-install-dir>" -ProjectDir "<project-install-dir>"
+```
 
-Where `<global-install-dir>` is the global skills directory (e.g. `$HOME/.claude/skills`) and `<project-install-dir>` is the project-level skills directory (e.g. `.claude/skills` relative to cwd). If a directory does not exist, omit that flag — the script handles missing dirs gracefully.
+If a directory does not exist, omit that flag — the script handles missing dirs gracefully.
 
-The script reads `skills.json` and outputs a numbered, categorized table of all available skills with install status markers (`[global]`, `[project]`, or `[global+project]`). Present the script output directly to the user — do not regenerate or reformat the list yourself.
+Present the script output directly to the user — do not regenerate or reformat the list. Then ask which skills to install. The user can respond with numbers (`1,3,5`), names (`tdd,diagnose`), or `all`.
 
-Then ask the user which skills they want to install. They can respond with:
-- Numbers (e.g. `1,3,5`)
-- Names (e.g. `tdd,diagnose`)
-- `all` to install everything
+### 3. Install selected skills
 
-### 3. Create symbolic links
+Pass the user's selection to the script's `install` command:
 
-Run the bundled script with the user's selection:
+```bash
+bash <repo-dir>/productivity/setup-kilians-skills/scripts/select-and-install.sh install \
+  --repo-dir <repo-dir> \
+  --target-dir <install-dir> \
+  --skills <user-selection>
+```
 
-- **macOS / Linux / Git Bash / WSL:**
-  ```bash
-  bash <repo-dir>/productivity/setup-kilians-skills/scripts/select-and-install.sh install \
-    --repo-dir <repo-dir> \
-    --target-dir <install-dir> \
-    --skills <user-selection>
-  ```
+On Windows:
+```powershell
+powershell -ExecutionPolicy Bypass -File "<repo-dir>\productivity\setup-kilians-skills\scripts\select-and-install.ps1" install `
+  -RepoDir "<repo-dir>" -TargetDir "<install-dir>" -Skills "<user-selection>"
+```
 
-- **Windows (PowerShell / cmd):**
-  ```powershell
-  powershell -ExecutionPolicy Bypass -File "<repo-dir>\productivity\setup-kilians-skills\scripts\select-and-install.ps1" install -RepoDir "<repo-dir>" -TargetDir "<install-dir>" -Skills "<user-selection>"
-  ```
+Where `<install-dir>` is the directory from step 1, and `<user-selection>` is the user's verbatim input from step 2.
 
-Where `<install-dir>` is the global or project-level directory determined in step 1, and `<user-selection>` is the user's comma-separated input from step 2.
+Report the script's output to the user.
 
-The script handles symlink creation, conflict detection, and error reporting. On Windows, if symlink creation fails, the script will prompt the user to enable Developer Mode or run as Administrator. Report the script's output to the user.
+### 4. Prompt to reload
 
-### 4. Reload skills
+After linking completes, tell the user to run `/reload-skills` in Claude Code to pick up the newly installed skills. Display a clear message like:
 
-After linking, run `/reload-skills` so Claude picks up the newly installed skills without restarting the session.
+> Skills installed successfully. Run `/reload-skills` to make them available in this session.

@@ -117,7 +117,7 @@ The skill will walk you through:
 1. **Choose install scope** — global (`~/.claude/skills/`) or project-level (`.claude/skills/` in the current directory)
 2. **Select skills** — browse all available skills with names, categories, and descriptions, then pick the ones you want
 3. **Automatic linking** — creates symbolic links so installed skills stay in sync with the source repository
-4. **Reload** — refreshes Claude Code's skill registry so new skills are immediately available
+4. **Reload prompt** — reminds you to run `/reload-skills` so Claude picks up the newly installed skills
 
 You can re-run `/setup-kilians-skills` at any time to install additional skills or set up skills for a new project.
 
