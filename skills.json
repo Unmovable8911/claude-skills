@@ -1,5 +1,10 @@
 [
   {
+    "name": "codebase-design",
+    "directory": "engineering/codebase-design",
+    "description": "Shared vocabulary for designing deep modules with small interfaces at clean seams. Use when designing or improving module interfaces, or deciding where seams go."
+  },
+  {
     "name": "diagnose",
     "directory": "engineering/diagnose",
     "description": "Disciplined diagnosis loop for hard bugs and performance regressions. Reproduce, minimise, hypothesise, instrument, fix, regression-test."
@@ -8,6 +13,16 @@
     "name": "dispatch-issues",
     "directory": "engineering/dispatch-issues",
     "description": "Orchestrate issue slices from .docs/issues/ to TDD sub-agents in dependency order, driving issue backlogs to completion wave by wave."
+  },
+  {
+    "name": "domain-modeling",
+    "directory": "engineering/domain-modeling",
+    "description": "Build and sharpen a project's domain model, pin down terminology, and record architectural decisions as they crystallise."
+  },
+  {
+    "name": "frontend-design",
+    "directory": "engineering/frontend-design",
+    "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and choices that don't read as templated defaults."
   },
   {
     "name": "grill-with-docs",
@@ -40,14 +55,54 @@
     "description": "Turn the current conversation context into a PRD and save to .docs/prd/."
   },
   {
+    "name": "webapp-testing",
+    "directory": "engineering/webapp-testing",
+    "description": "Toolkit for testing local web applications using Playwright. Verify frontend functionality, debug UI behavior, capture screenshots, and view browser logs."
+  },
+  {
+    "name": "docx",
+    "directory": "office/docx",
+    "description": "Create, read, edit, and manipulate Word documents (.docx files) with professional formatting, tables of contents, headings, and page numbers."
+  },
+  {
+    "name": "pdf",
+    "directory": "office/pdf",
+    "description": "Read, extract, combine, split, rotate, watermark, create, fill forms, encrypt/decrypt, and OCR PDF files."
+  },
+  {
+    "name": "pptx",
+    "directory": "office/pptx",
+    "description": "Create, read, edit, and manipulate PowerPoint presentations (.pptx files), including slide decks, templates, layouts, and speaker notes."
+  },
+  {
+    "name": "xlsx",
+    "directory": "office/xlsx",
+    "description": "Create, read, edit, and manipulate spreadsheet files (.xlsx, .xlsm, .csv, .tsv) with support for financial models, charts, formulas, and data cleaning."
+  },
+  {
     "name": "caveman",
     "directory": "productivity/caveman",
     "description": "Ultra-compressed communication mode that cuts token usage ~75% by dropping filler while keeping full technical accuracy."
   },
   {
+    "name": "doc-coauthoring",
+    "directory": "productivity/doc-coauthoring",
+    "description": "Structured three-stage workflow for co-authoring documentation: context gathering, iterative refinement, and reader testing to catch blind spots."
+  },
+  {
     "name": "grill-me",
     "directory": "productivity/grill-me",
     "description": "Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree."
+  },
+  {
+    "name": "handoff",
+    "directory": "productivity/handoff",
+    "description": "Compact the current conversation into a handoff document so a fresh agent can continue the work seamlessly."
+  },
+  {
+    "name": "mcp-builder",
+    "directory": "productivity/mcp-builder",
+    "description": "Guide for creating high-quality MCP servers that enable LLMs to interact with external services, supporting Python (FastMCP) and Node/TypeScript (MCP SDK)."
   },
   {
     "name": "skill-creator",

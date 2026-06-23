@@ -125,6 +125,7 @@ You can re-run `/setup-kilians-skills` at any time to install additional skills 
 
 ```
 engineering/   — software development workflows
+office/        — document creation and manipulation
 productivity/  — meta-skills for working with Claude itself
 ```
 
@@ -134,9 +135,15 @@ productivity/  — meta-skills for working with Claude itself
 
 Skills for software development: planning, implementing, debugging, and maintaining codebases.
 
+- **codebase-design** — Shared vocabulary for designing deep modules: a lot of behaviour behind a small interface, placed at a clean seam, testable through that interface. Use when designing or improving a module's interface, finding deepening opportunities, or deciding where a seam goes.
+
 - **diagnose** — A structured six-phase debugging methodology (build a feedback loop → reproduce → hypothesise → instrument → fix with regression test → cleanup). Use when investigating hard bugs, failures, or performance regressions.
 
 - **dispatch-issues** — Orchestrates an issue backlog in `.docs/issues/` by dispatching each slice to a dedicated TDD sub-agent in dependency-respecting waves (up to 3 in parallel), then commits and marks each resolved. Use when you want to drive a full issue backlog to completion automatically.
+
+- **domain-modeling** — Actively builds and sharpens a project's domain model by challenging terms, inventing edge-case scenarios, and writing the glossary and architectural decisions down as they crystallise. Use when pinning down domain terminology, recording architectural decisions, or maintaining a ubiquitous language.
+
+- **frontend-design** — Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults. Use when creating or redesigning a user interface.
 
 - **grill-with-docs** — Conducts a relentless one-question-at-a-time interview to stress-test a plan against the project's domain model, sharpening terminology and updating `CONTEXT.md` and ADRs inline as decisions crystallise. Use when validating a design against existing domain language and documented decisions.
 
@@ -150,6 +157,22 @@ Skills for software development: planning, implementing, debugging, and maintain
 
 - **to-prd** — Synthesises the current conversation context and codebase understanding into a PRD (problem statement, user stories, implementation/testing decisions) saved to `.docs/prd/`. Use when formalising what has already been discussed into a product requirements document.
 
+- **webapp-testing** — Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs. Use when you need to test or interact with a running web application.
+
+---
+
+## Office
+
+Skills for creating, reading, editing, and manipulating office documents.
+
+- **docx** — Create, read, edit, and manipulate Word documents (.docx files) with professional formatting, tables of contents, headings, and page numbers. Use when producing or modifying Word documents, reports, memos, letters, or templates.
+
+- **pdf** — Read, extract, combine, split, rotate, watermark, create, fill forms, encrypt/decrypt, and OCR PDF files. Use when doing anything with PDF files.
+
+- **pptx** — Create, read, edit, and manipulate PowerPoint presentations (.pptx files), including slide decks, pitch decks, templates, layouts, and speaker notes. Use when working with presentation files.
+
+- **xlsx** — Create, read, edit, and manipulate spreadsheet files (.xlsx, .xlsm, .csv, .tsv) with support for financial models, charts, formulas, and data cleaning. Use when producing or modifying spreadsheet files.
+
 ---
 
 ## Productivity
@@ -158,7 +181,13 @@ Meta-skills for working more effectively with Claude itself.
 
 - **caveman** — Activates a persistent ultra-compressed communication mode that strips articles, filler, and pleasantries (~75% token reduction) while preserving full technical accuracy. Use when you want brevity or need to reduce token usage.
 
+- **doc-coauthoring** — A structured three-stage workflow for co-authoring documentation: context gathering, iterative refinement, and reader testing with a fresh agent to catch blind spots. Use when writing docs, proposals, technical specs, or decision docs.
+
 - **grill-me** — Relentlessly interviews the user one question at a time about every aspect of a plan or design, walking down the decision tree and providing a recommended answer for each question. Use when you want to stress-test a plan or get grilled on your design.
+
+- **handoff** — Compacts the current conversation into a handoff document so a fresh agent can continue the work, referencing existing artifacts by path rather than duplicating them. Use when ending a session and wanting to enable seamless continuation.
+
+- **mcp-builder** — Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools, supporting both Python (FastMCP) and Node/TypeScript (MCP SDK). Use when building MCP servers to integrate external APIs or services.
 
 - **skill-creator** — Guides the full lifecycle of creating, testing, and iteratively improving Claude skills — from capturing intent and drafting a `SKILL.md`, through running parallel eval/baseline runs with a browser-based reviewer, to description optimisation. Use when creating a skill from scratch, editing an existing one, or benchmarking skill performance.
 
