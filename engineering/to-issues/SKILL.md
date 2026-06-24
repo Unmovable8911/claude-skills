@@ -1,6 +1,6 @@
 ---
 name: to-issues
-description: Break a plan, spec, or PRD into independently-grabbable issues and save them into `.docs/issues/` using tracer-bullet vertical slices. Use when user wants to convert a plan into issues, create implementation tickets, or break down work into issues.
+description: Break a plan, spec, or PRD into independently-grabbable issues and save them as documents using tracer-bullet vertical slices. Use when user wants to convert a plan into issues, create implementation tickets, or break down work into issues.
 ---
 
 # To Issues
@@ -49,11 +49,11 @@ Iterate until the user approves the breakdown.
 
 ### 5. Save the issues outline
 
-Save the user approved issues outline into `.docs/issues/00-outline.md` as a numbered list. Each list item shows the slice title, its blocked-by slice, and the issue status (pending / resolved). Do not generate content other than the list.
+Save the user approved issues outline into `docs/kilians-skills/issues/00-outline.md` as a numbered list. Each list item shows the slice title, its blocked-by slice, and the issue status (pending / resolved). Do not generate content other than the list.
 
-### 6. Save the issues to `.docs/issues/`
+### 6. Save the issues to documents
 
-For each approved slice, save a new issues document in `.docs/issues/`, document named as `<number>-<title>.md`. Use the issue body template below. These issues are considered ready for AFK agents.
+For each approved slice, save a new issues document in `docs/kilians-skills/issues/`, document named as `<number>-<title>.md`. Use the issue body template below. These issues are considered ready for AFK agents.
 
 <issue-template>
 

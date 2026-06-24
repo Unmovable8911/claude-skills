@@ -1,6 +1,6 @@
 ---
 name: to-prd
-description: Turn the current conversation context into a PRD and save to `.docs/prd/yyyy-MM-dd-HH:mm.md`. Use when user wants to create a PRD from the current context.
+description: Turn the current conversation context into a PRD and save to a document. Use when user wants to create a PRD from the current context.
 ---
 
 This skill takes the current conversation context and codebase understanding and produces a PRD. Do NOT interview the user — just synthesize what you already know.
@@ -13,7 +13,7 @@ This skill takes the current conversation context and codebase understanding and
 
 Check with the user that these seams match their expectations.
 
-3. Write the PRD using the template below, then save it to `.docs/prd/yyyy-MM-dd-HH:mm.md`.
+3. Write the PRD using the template below, then save it to `docs/kilians-skills/prd/yyyy-MM-dd-HH:mm.md`.
 
 <prd-template>
 

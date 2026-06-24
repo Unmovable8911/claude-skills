@@ -157,6 +157,10 @@ Skills for software development: planning, implementing, debugging, and maintain
 
 - **to-prd** — Synthesises the current conversation context and codebase understanding into a PRD (problem statement, user stories, implementation/testing decisions) saved to `.docs/prd/`. Use when formalising what has already been discussed into a product requirements document.
 
+- **update-atlas** — Generate or incrementally update a multi-file project atlas (`atlas/` directory) for large codebases. Produces an `INDEX.md` with project overview and module tree, plus per-module detail files with dependencies, dependents, and internal structure. Use at the end of a session on large projects after making structural changes.
+
+- **update-memory** — Generate or incrementally update a `CODEBASE.md` file that gives AI models a structured overview of the project — architecture, modules, dependencies, and data flow — so they can navigate and modify the codebase without blind exploration. Use at the end of a session after making structural changes.
+
 - **webapp-testing** — Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs. Use when you need to test or interact with a running web application.
 
 ---
@@ -179,6 +183,8 @@ Skills for creating, reading, editing, and manipulating office documents.
 
 Meta-skills for working more effectively with Claude itself.
 
+- **brainstorming** — Collaborative design process that explores user intent, requirements and constraints through one-at-a-time questions, proposes approaches with trade-offs, and produces a validated design spec before any implementation begins. Use before any creative work — creating features, building components, or modifying behavior.
+
 - **caveman** — Activates a persistent ultra-compressed communication mode that strips articles, filler, and pleasantries (~75% token reduction) while preserving full technical accuracy. Use when you want brevity or need to reduce token usage.
 
 - **doc-coauthoring** — A structured three-stage workflow for co-authoring documentation: context gathering, iterative refinement, and reader testing with a fresh agent to catch blind spots. Use when writing docs, proposals, technical specs, or decision docs.
@@ -196,3 +202,5 @@ Meta-skills for working more effectively with Claude itself.
 - **teach** — Sets up and maintains a stateful teaching workspace in the current directory, producing self-contained HTML lessons, reference documents, and learning records tailored to the user's mission and zone of proximal development. Use when learning a topic across multiple sessions.
 
 - **write-a-skill** — A lightweight guide for quickly drafting a new skill with proper structure (`SKILL.md`, optional reference files, and utility scripts), covering requirements gathering, file layout, description requirements, and a review checklist. Use when creating a new skill.
+
+- **writing-plans** — Writes comprehensive implementation plans from a spec or requirements, breaking work into bite-sized TDD tasks with exact file paths, complete code, and testing commands. Use when you have a spec or requirements for a multi-step task, before touching code.

@@ -1,6 +1,6 @@
-## Project Info
+## Project
 
-- **A collection of agent skills, continuously expanded for diverse use cases.**
+A personal collection of Claude Code skills for software engineering, productivity, writing, and daily workflows.
 
 ## Constraints
 
